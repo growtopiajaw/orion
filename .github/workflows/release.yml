@@ -32,7 +32,6 @@ jobs:
         DEVELOPER_DIR=/Applications/Xcode_11.7.app/Contents/Developer make clean package FINALPACKAGE=1
         cd packages
         7z a -r -tzip -snl master.zip *
-        sha1sum master.zip
         cd ..
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.2
