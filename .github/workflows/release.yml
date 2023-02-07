@@ -38,6 +38,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_2 }}
       with:
-        name: Orion_${{ steps.setup.outputs.version }}.zip
+        name: swift-5.7.zip
         path: ${{ github.workspace }}/orion/packages/Orion_${{ steps.setup.outputs.version }}.zip
         retention-days: 90
