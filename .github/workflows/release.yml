@@ -31,7 +31,8 @@ jobs:
         DEVELOPER_DIR=/Applications/Xcode_12.4.app/Contents/Developer make clean package FINALPACKAGE=1
         DEVELOPER_DIR=/Applications/Xcode_11.7.app/Contents/Developer make clean package FINALPACKAGE=1
         cd packages
-        7z a -r -tzip -snl -mx9 Orion_${{ steps.setup.outputs.version }}.zip *
+        7z a -r -tzip -snl master.zip *
+        sha1sum master.zip
         cd ..
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.2
@@ -39,5 +40,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN_2 }}
       with:
         name: master.zip
-        path: ${{ github.workspace }}/orion/packages/Orion_${{ steps.setup.outputs.version }}.zip
+        path: ${{ github.workspace }}/orion/packages/master.zip
         retention-days: 90
